@@ -4,7 +4,7 @@ Useful scripts to save AOSP developers some time
 To pull
 - ArchLinuxEnvironment
 ```shell
-curl -o ArchLinuxEnvironment.sh https://raw.githubusercontent.com/guckesh/scripts/refs/heads/master/ArchLinuxEnvironment.sh
+curl -o ArchLinuxEnvironment.sh https://raw.githubusercontent.com/guckesh/scripts/refs/heads/master/ArchLinuxEnvironment.sh && chmod a+x ArchLinuxEnvironment.sh
 ```
 - extrair_prop
 ```shell

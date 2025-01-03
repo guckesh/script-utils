@@ -6,6 +6,10 @@ To pull
 ```shell
 curl -o ArchLinuxEnvironment.sh https://raw.githubusercontent.com/guckesh/scripts/refs/heads/master/ArchLinuxEnvironment.sh && chmod a+x ArchLinuxEnvironment.sh
 ```
+- UbuntuEnvironment
+```shell
+curl -o UbuntuEnvironment.sh https://raw.githubusercontent.com/guckesh/scripts/refs/heads/master/UbuntuEnvironment.sh && chmod a+x UbuntuEnvironment.sh
+```
 - extrair_prop
 ```shell
 curl -o extrair_prop.py https://raw.githubusercontent.com/guckesh/scripts/refs/heads/master/extrair_prop.py
@@ -24,6 +28,10 @@ To run
 - ArchLinuxEnvironment
 ```shell
 bash ArchLinuxEnvironment.sh
+```
+- UbuntuEnvironment
+```shell
+bash UbuntuEnvironment.sh
 ```
 - extrair_prop
 ```shell

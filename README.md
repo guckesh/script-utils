@@ -2,9 +2,9 @@ Useful scripts to save AOSP developers some time
 ------------------------------------------------
 
 To pull
-- ArchLinuxEnvironment
+- ManjaroEnvironment
 ```shell
-curl -o ArchLinuxEnvironment.sh https://raw.githubusercontent.com/guckesh/scripts/refs/heads/master/ArchLinuxEnvironment.sh && chmod a+x ArchLinuxEnvironment.sh
+curl -o ManjaroEnvironment.sh https://raw.githubusercontent.com/guckesh/scripts/refs/heads/master/ManjaroEnvironment.sh && chmod a+x ManjaroEnvironment.sh
 ```
 - UbuntuEnvironment
 ```shell
@@ -25,9 +25,9 @@ curl -o sha1sum_script.py https://raw.githubusercontent.com/guckesh/scripts/refs
 
 To run
 
-- ArchLinuxEnvironment
+- ManjaroEnvironment
 ```shell
-bash ArchLinuxEnvironment.sh
+bash ManjaroEnvironment.sh
 ```
 - UbuntuEnvironment
 ```shell

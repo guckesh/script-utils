@@ -7,7 +7,7 @@ command_exists() {
 
 # Atualizar o sistema e instalar dependências básicas
 echo "Atualizando o sistema e instalando dependências básicas..."
-sudo pacman -Syu --noconfirm base-devel git wget curl unzip zsh
+sudo pacman -Syu --needed --noconfirm base-devel git wget curl unzip zsh
 
 # Verificar se Zsh está instalado
 if ! command_exists zsh; then
@@ -15,9 +15,13 @@ if ! command_exists zsh; then
     exit 1
 fi
 
-# Configurar o Zsh como shell padrão
+# Configurar o Zsh como shell padrão para o usuário atual
 echo "Configurando o Zsh como shell padrão..."
-chsh -s $(which zsh)
+if [ "$EUID" -eq 0 ]; then
+    echo "Nota: Não é possível alterar o shell do usuário root. Faça logout e altere manualmente com 'chsh -s $(which zsh)'."
+else
+    chsh -s "$(which zsh)"
+fi
 echo "Shell padrão configurado para Zsh. Faça logout ou reinicie o terminal para aplicar as mudanças."
 
 # Baixar o histórico do Zsh
@@ -34,7 +38,7 @@ fi
 
 # Instalar Python e pip
 echo "Instalando Python e pip..."
-sudo pacman -S --noconfirm python python-pip
+sudo pacman -S --needed --noconfirm python python-pip
 
 # Verificar se Python e pip estão instalados
 if ! command_exists python || ! command_exists pip3; then
@@ -47,11 +51,18 @@ echo "Configurando ambiente de compilação para AOSP e kernel Android..."
 
 # Dependências do AOSP
 echo "Instalando dependências do AOSP..."
-sudo pacman -S --noconfirm openjdk11-jdk repo ccache
+sudo pacman -S --needed --noconfirm jdk11-openjdk repo ccache bison gperf libxml2 ninja
 
-# Instalar pacotes adicionais necessários para compilação
-echo "Instalando pacotes adicionais necessários..."
-sudo pacman -S --noconfirm bison gperf libxml2-utils ncurses5-compat-libs perl-devel ninja
+# Instalar ncurses5-compat-libs do AUR
+if ! command_exists yay; then
+    echo "Instalando yay para gerenciar pacotes AUR..."
+    git clone https://aur.archlinux.org/yay.git
+    cd yay || exit 1
+    makepkg -si --noconfirm
+    cd .. && rm -rf yay
+fi
+echo "Instalando ncurses5-compat-libs do AUR..."
+yay -S --needed --noconfirm ncurses5-compat-libs
 
 # Configurar variáveis de ambiente
 echo "Configurando variáveis de ambiente para o AOSP..."

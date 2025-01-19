@@ -22,26 +22,3 @@ curl -o remove_duplicates.py https://raw.githubusercontent.com/guckesh/scripts/r
 ```shell
 curl -o sha1sum_script.py https://raw.githubusercontent.com/guckesh/scripts/refs/heads/master/sha1sum_script.py
 ```
-
-To run
-
-- ManjaroEnvironment
-```shell
-bash ManjaroEnvironment.sh
-```
-- UbuntuEnvironment
-```shell
-bash UbuntuEnvironment.sh
-```
-- extrair_prop
-```shell
-python3 extrair_prop.py
-```
-- remove_duplicates
-```shell
-python3 remove_duplicates.py
-```
-- sha1sum_script
-```shell
-python3 sha1sum_script.py
-```
